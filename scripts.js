@@ -9,6 +9,12 @@ const pontuacaodele = document.querySelector(".dele")
 let sua = 0
 let dele = 0
 
+const GAME_OPTIONS = {
+PEDRA : "pedra",
+PAPEL : "papel",
+TESOURA : "tesoura"
+
+}
 
 const humanClick = escolha => {
 
@@ -17,7 +23,7 @@ const humanClick = escolha => {
 
 const iaChoise = () => {
 
-    const options = ["pedra", "papel", "tesoura"]
+    const options = [GAME_OPTIONS.PEDRA, GAME_OPTIONS.PAPEL, GAME_OPTIONS.TESOURA]
     const random = Math.floor(Math.random() * 3)
     return options[random]
 
@@ -37,9 +43,9 @@ const play = (human, machine) => {
         if (human === machine) {
 
             result.innerHTML = "Empate!"
-        } else if ((human === 'pedra' && machine === "papel") ||
-            (human === 'papel' && machine === "tesoura") ||
-            (human === 'tesoura' && machine === "pedra")) {
+        } else if ((human === GAME_OPTIONS.PEDRA  && machine === GAME_OPTIONS.PAPEL) ||
+            (human === GAME_OPTIONS.PAPEL && machine === GAME_OPTIONS.TESOURA) ||
+            (human === GAME_OPTIONS.TESOURA && machine === GAME_OPTIONS.PEDRA)) {
             result.innerHTML = `você: ${human}<br> oponente: ${machine} <br> VOCÊ PERDEU!`
             dele++
             pontuacaodele.innerHTML = dele
